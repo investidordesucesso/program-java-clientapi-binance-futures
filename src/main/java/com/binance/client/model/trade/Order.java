@@ -1,9 +1,10 @@
 package com.binance.client.model.trade;
 
-import com.binance.client.constant.BinanceApiConstants;
+import java.math.BigDecimal;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import java.math.BigDecimal;
+import com.binance.client.constant.BinanceApiConstants;
 
 public class Order {
 
@@ -34,6 +35,8 @@ public class Order {
     private String timeInForce;
 
     private String type;
+
+	private Long time;
 
     private Long updateTime;
 
@@ -167,13 +170,23 @@ public class Order {
         this.workingType = workingType;
     }
 
-    @Override
+	public Long getTime() {
+		return time;
+	}
+
+	public void setTime(Long time) {
+		this.time = time;
+	}
+
+	@Override
     public String toString() {
         return new ToStringBuilder(this, BinanceApiConstants.TO_STRING_BUILDER_STYLE)
                 .append("clientOrderId", clientOrderId).append("cumQuote", cumQuote).append("executedQty", executedQty)
                 .append("orderId", orderId).append("origQty", origQty).append("price", price)
                 .append("reduceOnly", reduceOnly).append("side", side).append("positionSide", positionSide).append("status", status)
                 .append("stopPrice", stopPrice).append("symbol", symbol).append("timeInForce", timeInForce)
-                .append("type", type).append("updateTime", updateTime).append("workingType", workingType).toString();
+				.append("type", type).append("updateTime", updateTime).append("time", time)
+				.append("workingType", workingType).toString();
     }
+
 }

@@ -312,10 +312,17 @@ public interface SyncRequestClient {
     List<PositionRisk> getPositionRisk();
 
     /**
-     * Get trades for a specific account and symbol.
-     *
-     * @return Trades.
-     */
+	 * Get position, v2 endpoint.
+	 *
+	 * @return Position.
+	 */
+	List<PositionRisk> getPositionRiskV2();
+
+	/**
+	 * Get trades for a specific account and symbol.
+	 *
+	 * @return Trades.
+	 */
     List<MyTrade> getAccountTrades(String symbol, Long startTime, Long endTime, Long fromId, Integer limit);
 
     /**
@@ -380,5 +387,6 @@ public interface SyncRequestClient {
      * @return Taker Long/Short Ratio. 
      */
     List<TakerLongShortStat> getTakerLongShortRatio(String symbol, PeriodType period, Long startTime, Long endTime, Integer limit);
+
 
 }

@@ -1,11 +1,14 @@
 package com.binance.client.model.trade;
 
-import com.binance.client.constant.BinanceApiConstants;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-
 import java.math.BigDecimal;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
+import com.binance.client.constant.BinanceApiConstants;
+
 public class MyTrade {
+
+	private Long id;
 
     private Boolean isBuyer;
 
@@ -147,6 +150,14 @@ public class MyTrade {
         this.time = time;
     }
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
     @Override
     public String toString() {
         return new ToStringBuilder(this, BinanceApiConstants.TO_STRING_BUILDER_STYLE).append("isBuyer", isBuyer)
@@ -156,4 +167,5 @@ public class MyTrade {
                 .append("realizedPnl", realizedPnl).append("side", side).append("positionSide", positionSide)
                 .append("symbol", symbol).append("time", time).toString();
     }
+
 }
