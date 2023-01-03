@@ -28,6 +28,10 @@ public class Position {
     private String maxNotional;
 
     private String positionSide;
+    
+    private BigDecimal positionAmt;
+    
+    private BigDecimal markPrice;
 
     public Boolean getIsolated() {
         return isolated;
@@ -117,14 +121,31 @@ public class Position {
         this.positionSide = positionSide;
     }
 
+	public BigDecimal getPositionAmt() {
+		return positionAmt;
+	}
+
+	public void setPositionAmt(BigDecimal positionAmt) {
+		this.positionAmt = positionAmt;
+	}
+
+	public BigDecimal getMarkPrice() {
+		return markPrice;
+	}
+
+	public void setMarkPrice(BigDecimal markPrice) {
+		this.markPrice = markPrice;
+	}
+	
     @Override
     public String toString() {
         return new ToStringBuilder(this, BinanceApiConstants.TO_STRING_BUILDER_STYLE)
                 .append("initialMargin", initialMargin).append("maintMargin", maintMargin)
                 .append("openOrderInitialMargin", openOrderInitialMargin)
-                .append("positionInitialMargin", positionInitialMargin).append("symbol", symbol)
+                .append("positionInitialMargin", positionInitialMargin).append("positionAmt", positionAmt).append("symbol", symbol)
                 .append("unrealizedProfit", unrealizedProfit).append("entryPrice", entryPrice)
                 .append("maxNotional", maxNotional).append("positionSide", positionSide)
-                .append("isolated", isolated).toString();
+                .append("isolated", isolated).append("markPrice", markPrice).toString();
     }
+	
 }
